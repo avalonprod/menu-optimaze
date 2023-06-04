@@ -11,37 +11,24 @@
     --arrow-color: #727273;
 }
 
-body{
-    background-color: var(--aside-background);
-    color: var(--text-color);
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    user-select: none;
-}
-
-main{
-    padding-left: 100px;
-}
-
-a{
-    color: var(--text-color);
-    text-decoration: none;
-}
-
 .aside{
-    position: absolute;
+    position: fixed;
     top: 130px;
-    left: 0;
+    left: 10px;
+
     width: 66px;
-    /* height: 100vh; */
-    bottom: 0;
+    min-height: 200px;
     background-color: var(--aside-background);
+
     border-right: 1px solid var(--aside-border-color);
+
     display: flex;
     flex-direction: column;
+
     transition: all .2s;
-    font-size: 14px;
-    overflow-y: auto;
+    overflow: hidden auto;
+
+    user-select: none;
 }
 
 .aside.active{
@@ -67,6 +54,13 @@ a{
     transition: all .4s;
     word-spacing: 1px;
     line-height: 130%;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    color: var(--text-color) !important;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px !important;
+    font-weight: 500 !important;
 }
 
 .dropdown-top{
@@ -156,7 +150,6 @@ a{
     transition: max-height .4s;
 }
 
-
 .link:hover{
     color: var(--text-color);
     background-color: var(--hover-background);
@@ -165,7 +158,7 @@ a{
 
 .link.active{
     background-color: var(--link-active-background);
-    color: var(--link-active-color);
+    color: var(--link-active-color) !important;
 }
 
 .single-item .link{
@@ -186,20 +179,15 @@ a{
     display: flex;
 }
 
-
 .dropdown .sublist-dropdown{
-    /* display: none; */
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.2s;
-    transition-delay: 0s;
 }
 
 .dropdown .subitem-dropdown.menu-active .sublist-dropdown{
-    display: block;
     max-height: 700px;
     transition: max-height 0.4s;
-    transition-delay: 0s;
 }
 
 .dropdown .subitem-dropdown .dropdown-arrow{
@@ -228,5 +216,3 @@ a{
 .tab-pane.active{
     display: block;
 }
-
-

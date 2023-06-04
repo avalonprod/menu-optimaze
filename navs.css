@@ -17,7 +17,7 @@
     left: 10px;
 
     width: 66px;
-    min-height: 200px;
+    min-height: 50%;
     background-color: var(--aside-background);
 
     border-right: 1px solid var(--aside-border-color);

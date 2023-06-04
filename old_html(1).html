@@ -1,0 +1,259 @@
+
+<head>
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <title>Digital Fuel Capital</title>
+  <link rel="stylesheet" href="mycss.css">
+  
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/AdminLTE.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-blue.min.css">
+  <script>
+    const zoomLevels = [
+      { width: 1100, zoom: 0.80 },   // Small screens
+      { width: 1400, zoom: 0.85 },   // Medium screens
+      { width: Infinity, zoom: 1 }    // Large screens
+    ];
+
+    const screenWidth = window.innerWidth;
+    let zoomLevel = 1;
+
+    for (const level of zoomLevels) {
+      if (screenWidth < level.width) {
+        zoomLevel = level.zoom;
+        break;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.style.zoom = zoomLevel;
+    });
+
+    window.addEventListener("click", function() {
+      document.getElementById("btn-summary-metrics-yoy").style.color = "black";
+      document.getElementById("btn-Repeat-Frequency").style.color = "black";
+      document.getElementById("btn-repeat-revenue-trend").style.color = "black";
+      document.getElementById("btn-cohort-financial-contribution").style.color = "black";
+      document.getElementById("btn-category-economics-summary").style.color = "black";
+      document.getElementById("btn-Geography").style.color = "black";
+
+      const elementsWithClass = document.querySelectorAll("div.active");
+      const firstElementId = elementsWithClass[0].id;
+      document.getElementById("btn-" + firstElementId).style.color = "orange";
+    });
+  </script>
+  <link rel="stylesheet" href="./navs.css">
+</head>
+<body>
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+  </div>
+  <!-- /Preloader -->
+  <div class="body-white">
+    <div class="header">
+      <div class="container">
+        <div class="header-wrapper">
+          <a href="https://www.digitalfuelcapital.com/">
+            <img src="https://www.digitalfuelcapital.com/img/logo.png" height="45px">
+          </a>
+          <!-- <div class="aside-btn" style="display: flex; align-items: center;">
+            <svg enable-background="new 0 0 512 512" fill="currentColor" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <rect height="64" width="256" x="128" y="320"></rect>
+                <rect height="64" width="256" x="128" y="224"></rect>
+                <path d="M480,0H32C14.312,0,0,14.312,0,32v448c0,17.688,14.312,32,32,32h448c17.688,0,32-14.312,32-32V32C512,14.312,497.688,0,480,0z M448,448H64V64h384V448z"></path>
+                <rect height="64" width="256" x="128" y="128"></rect>
+              </g>
+            </svg>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="container">
+        <div class="page-content">
+          <div class="aside-container open">
+            <!-- <aside class="aside open">
+              <nav class="aside__nav">
+                <ul class="aside__items" data-spollers="" data-one-spoller="">
+                  <li class="aside__item summary-metrics-item">
+                    <button type="button" class="aside__nav-btn _spoller-active" data-spoller="" href="#summary-metrics" data-toggle="tab">
+                      Summary metrics
+                    </button>
+                    <ul class="aside__submenu">
+                      <li>
+                        <ul>
+                          <button type="button" data-toggle="tab" href="#summary-metrics-yoy" id="btn-summary-metrics-yoy" style="color: orange;">
+                            summary metrics yoy
+                            <i>→</i>
+                          </button>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="aside__item">
+                    <button type="button" class="aside__nav-btn" data-toggle="tab" href="#Cohort-Analysis" data-spoller="" id="btn-Cohort-Analysis">
+                      Cohort Analysis
+                    </button>
+                    <ul class="aside__submenu" hidden="">
+                      <li>
+                        <h4>Cohort summary</h4>
+                      </li>
+                      <li>
+                        <ul>
+                          <button type="button" href="#category-economics-summary" data-toggle="tab" id="btn-category-economics-summary">
+                            Category Economics Summary
+                            <i>→</i>
+                          </button>
+                        </ul>
+                      </li>
+                      <li>
+                        <ul>
+                          <button type="button" class="cohort-financial-contribution" href="#cohort-financial-contribution" data-toggle="tab" id="btn-cohort-financial-contribution">
+                            Cohort Financial Contribution
+                            <i>→</i>
+                          </button>
+                        </ul>
+                      </li>
+                      <li>
+                        <ul>
+                          <button type="button" href="#repeat-revenue-trend" data-toggle="tab" id="btn-repeat-revenue-trend">
+                            Repeat Revenue trend
+                            <i>→</i>
+                          </button>
+                        </ul>
+                      </li>
+                      <li>
+                        <h4>Customer Behavior</h4>
+                      </li>
+                      <li>
+                        <ul>
+                          <button type="button" href="#Repeat-Frequency" data-toggle="tab" id="btn-Repeat-Frequency">
+                            Repeat Frequency
+                            <i>→</i>
+                          </button>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="aside__item">
+                      <button type="button" class="aside__nav-btn geografy-item" data-spoller="" href="#Geography" data-toggle="tab" id="btn-Geography">
+                        Geography
+                      </button>
+                      <ul class="aside__submenu" hidden=""></ul>
+                    </ul>
+                  </li>
+                </ul>
+                <br><br>
+                <div class="aside-buttons">
+                  <div class="button-load aside-load-button">
+                    <a target="_blank" download="" aria-live="polite"></a>
+                  </div>
+                  <div class="buttons-cohort-financial hidden">
+                    <div class="button-load">
+                      <a target="_blank" download="" aria-live="polite"></a>
+                    </div>
+                    <div class="button-load">
+                      <a target="_blank" download="" aria-live="polite"></a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </aside> -->
+            <aside class="aside">
+              <nav class="aside-nav">
+                  <ul class="list">
+                      <li class="item dropdown child-active">
+                          <div class="dropdown-top">
+                              <div class="dropdown-arrow">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="24"><path d="M400-280v-400l200 200-200 200Z"/></svg>                        </div>
+                              <div class="dropdown-icon item-icon">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m123-240-43-43 292-291 167 167 241-241H653v-60h227v227h-59v-123L538-321 371-488 123-240Z"/></svg>
+                              </div>
+                              <span class="item-text">Summary metrics</span>
+                          </div>
+                          <div class="dropdown-content">
+                              <ul class="sublist">
+                                  <li class="subitem"><a href="#summary-metrics-yoy"class="link active">Summary metrics yoy</a></li>
+                              </ul>
+                          </div>
+                      </li>
+                      <li class="item dropdown menu-active">
+                          <div class="dropdown-top">
+                              <div class="dropdown-arrow">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="" viewBox="0 -960 960 960" width="24"><path d="M400-280v-400l200 200-200 200Z"/></svg>                        
+                              </div>
+                              <div class="dropdown-icon item-icon">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M481-80q-82 0-155-31.5T198.5-197q-54.5-54-86-127T81-479q0-158 106.5-272T452-877v102q-115 11-192 95.5T183-479q0 124 87 210.5T481-182q72 0 136-32.5T726-306l88 51q-58 83-145.5 129T481-80Zm362-229-88-49q12-31 18-61.5t6-60.5q0-116-76.5-201T512-776v-102q157 11 263 124.5T881-484q0 45-9.5 88.5T843-309Z"/></svg>
+                              </div>
+                              <span class="item-text">Cohort Analysis</span>
+                          </div>
+                          <div class="dropdown-content">
+                              <ul class="sublist">
+                                  <li class="subitem dropdown subitem-dropdown">
+                                      <div class="dropdown-top ">
+                                          <div class="dropdown-arrow">
+                                              <svg xmlns="http://www.w3.org/2000/svg" height="" viewBox="0 -960 960 960" width="24"><path d="M400-280v-400l200 200-200 200Z"/></svg>                        
+                                          </div>
+                                          <span class="item-text">Cohort summary</span>
+                                      </div>
+                                      <div class="dropdown-content">
+                                          <ul class="sublist-dropdown">
+                                              <li class="subitem-dropdown"><a href="#cohort-financial-contribution"class="link">Cohort Financial Contribution</a></li>
+                                              <li class="subitem-dropdown"><a href="#repeat-revenue-trend"class="link">Repeat Revenue Trend</a></li>
+                                              <li class="subitem-dropdown"><a href="#Repeat-Frequency"class="link">Repeat Frequency</a></li>
+                                          </ul>
+                                      </div>
+                                  </li>
+                                  <li class="subitem dropdown subitem-dropdown">
+                                      <div class="dropdown-top">
+                                          <div class="dropdown-arrow">
+                                              <svg xmlns="http://www.w3.org/2000/svg" height="" viewBox="0 -960 960 960" width="24"><path d="M400-280v-400l200 200-200 200Z"/></svg>                        
+                                          </div>
+                                          <span class="item-text">Category Customer Behavior</span>
+                                      </div>
+                                      <div class="dropdown-content">
+                                          <ul class="sublist-dropdown">
+                                              <li class="subitem-dropdown"><a href="#category-economics-summary" class="link">Category Economics Summary</a></li>
+                                          </ul>
+                                      </div>
+                                  </li>
+                              </ul>
+                          </div>
+                          
+                      </li>
+                      <li class="item single-item">
+                          <a href="#geography" class="link">
+                              <div class="item-icon">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M480.089-490Q509-490 529.5-510.589q20.5-20.588 20.5-49.5Q550-589 529.411-609.5q-20.588-20.5-49.5-20.5Q451-630 430.5-609.411q-20.5 20.588-20.5 49.5Q410-531 430.589-510.5q20.588 20.5 49.5 20.5ZM480-159q133-121 196.5-219.5T740-552q0-117.79-75.292-192.895Q589.417-820 480-820t-184.708 75.105Q220-669.79 220-552q0 75 65 173.5T480-159Zm0 79Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-472Z"/></svg> 
+                              </div>
+                              <span class="item-text">Geography</span>
+                          </a>
+                      </li>
+                  </ul>
+              </nav>
+          </aside>
+          </div>
+          
+          <div class="tab-content">
+            <div class="tab-pane active" id="summary-metrics-yoy">dsfsadf</div>
+            <div class="tab-pane" id="category-economics-summary"></div>
+            <div class="tab-pane" id="cohort-financial-contribution"></div>
+            <div class="tab-pane" id="repeat-revenue-trend"></div>
+            <div class="tab-pane" id="Repeat-Frequency"></div>
+            <div class="tab-pane" id="repeat-revenue-trend">repeat revenue trend</div>
+            <div class="tab-pane" id="Geography"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="jquery.min.js"></script>
+<script src="test2.js"></script>  
+<script src="navs.js"></script>
+<script src="preloader-main.js"></script>
+</body>
+
